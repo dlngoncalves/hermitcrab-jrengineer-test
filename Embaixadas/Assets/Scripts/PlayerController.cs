@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    bool canKick = false;
-    bool wrongKick = false;
+    bool canKick = false;    
     bool gameStarted = false;
 
-    public float kickInterval = 2.0f;
     Ball ball;
     GameController controller;
 
@@ -26,6 +24,7 @@ public class PlayerController : MonoBehaviour {
             else{
                 canKick = true;
                 gameStarted = true;
+                ball.gameStarted = true;
             }
            
            if(canKick){
@@ -36,35 +35,22 @@ public class PlayerController : MonoBehaviour {
                         ball.KickBall();
                         controller.updateScore();
                     }
-                }            
-            }
+                    else{
+                        wrongKick();
+                    }
+                }
+                else{
+                    wrongKick();
+                }
+           }
            else{
-               Debug.Log("ERROU");
-               
+               wrongKick();
            }
         }
 	}
 
-    //Coisas nao utilizadas
-    IEnumerator WaitToKick()
-    {
-        yield return new WaitForSeconds(kickInterval);
-        canKick = true;
-    }
-
-    void MoveWithMouse()
-    {
-        Vector3 playerPosition = transform.position;
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = 10;
-        float newPositionX = Camera.main.ScreenToWorldPoint(mousePosition).x;
-        playerPosition.x = Mathf.Clamp(newPositionX, -7.0f, 7.0f);//field size
-        transform.position = playerPosition;        
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Ball")
-            canKick = true;            
+    void wrongKick()
+    {        
+        Destroy(gameObject);
     }
 }

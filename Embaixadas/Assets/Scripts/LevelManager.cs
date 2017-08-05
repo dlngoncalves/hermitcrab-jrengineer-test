@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
+    float delay;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,13 +21,17 @@ public class LevelManager : MonoBehaviour {
         SceneManager.LoadScene(levelName);
     }
 
-    public static void LoadLevelFromCode(string levelName, float waitTime)
+    public void LoadEndScreen(float waitTime)
     {
-        
+        delay = waitTime;
+        StartCoroutine("LoadWithDelay");
         
     }
 
-    //IEnumerator
-    //    SceneManager.LoadScene(levelName);
+    IEnumerator LoadWithDelay()
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("EndScreen");        
+    }
 
 }

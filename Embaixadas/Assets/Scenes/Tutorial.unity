@@ -270,7 +270,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114008624905736626, guid: d2c604d8b509b3744bdce9e7d3a02c3f,
           type: 2}
-        m_MethodName: LoadLevel
+        m_MethodName: LoadLevelFromMenu
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -349,7 +349,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tutorial text
+  m_Text: "ACERTE A BOLA QUANDO ELA ESTIVER NA ALTURA CORRETA\n\nNAO DEIXE A BOLA
+    CAIR NO CHAO NEM TENTE ACERT\xC1-LA QUANDO ESTIVER MUITO ALTA\n\nPARA ACERTAR
+    A BOLA, BASTA APENAS UM CLIQUE DO MOUSE\n\nQUANTO MAIS ACERTOS, MAIS PONTOS!\n\nBOA
+    SORTE!"
 --- !u!222 &565909111
 CanvasRenderer:
   m_ObjectHideFlags: 0

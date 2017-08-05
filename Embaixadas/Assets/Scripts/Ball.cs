@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour {
 
     float originalZPosition;
-    
+    public bool gameStarted = false;
 	// Use this for initialization
 	void Start () {
         originalZPosition = transform.position.z;
@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour {
 
     public void KickBall()
     {        
-        Vector3 force = Vector3.up * 10;
+        Vector3 force = Vector3.up * 5;
         force.x = Random.Range(-2, 2);
         Rigidbody ball = GetComponent<Rigidbody>();
         ball.velocity = new Vector3(force.x, force.y, force.z);
@@ -33,7 +33,7 @@ public class Ball : MonoBehaviour {
     {
         Debug.Log(transform.position.y);
 
-        if (transform.position.y >= -0.5f && transform.position.y <= 2.5f)
+        if (transform.position.y >= -0.5f && transform.position.y <= 1.5f)
             return true;
         else
           return false;
@@ -42,6 +42,10 @@ public class Ball : MonoBehaviour {
 
     public void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.other.gameObject.name);
+        if (gameStarted && collision.other.gameObject.name == "Ground")
+        {
+            LevelManager levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+            levelManager.LoadEndScreen(0.5f);
+        }
     }
 }
