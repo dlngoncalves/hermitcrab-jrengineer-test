@@ -15,8 +15,18 @@ public class LevelManager : MonoBehaviour {
 		
 	}
 
-    public void LoadLevel(string levelName)
+    public void LoadLevelFromMenu(string levelName)
     {
         SceneManager.LoadScene(levelName);
     }
+
+    public static void LoadLevelFromCode(string levelName, float waitTime)
+    {
+        
+        
+    }
+
+    //IEnumerator
+    //    SceneManager.LoadScene(levelName);
+
 }

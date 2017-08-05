@@ -846,7 +846,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114008624905736626, guid: d2c604d8b509b3744bdce9e7d3a02c3f,
           type: 2}
-        m_MethodName: LoadLevel
+        m_MethodName: LoadLevelFromMenu
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
