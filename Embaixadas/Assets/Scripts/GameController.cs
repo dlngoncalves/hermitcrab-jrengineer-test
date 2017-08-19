@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour {
             }
                 
         }
-        
+        checkBallDirection();
 	}
     
     bool canShowCircle()
